@@ -1,0 +1,111 @@
+method: bayes
+metric:
+  goal: maximize
+  name: val/mIoU
+parameters:
+  CLAHE:
+    distribution: categorical
+    values:
+    - "true"
+    - "false"
+  GridDistortion:
+    distribution: categorical
+    values:
+    - "true"
+    - "false"
+  HorizontalFlip:
+    distribution: categorical
+    values:
+    - "true"
+    - "false"
+  HueSaturationValue:
+    distribution: categorical
+    values:
+    - "true"
+    - "false"
+  ImageCompression:
+    distribution: categorical
+    values:
+    - "true"
+    - "false"
+  MotionBlur:
+    distribution: categorical
+    values:
+    - "true"
+    - "false"
+  RGBShift:
+    distribution: categorical
+    values:
+    - "true"
+    - "false"
+  RandomBrightnessContrast:
+    distribution: categorical
+    values:
+    - "true"
+    - "false"
+  RandomGamma:
+    distribution: categorical
+    values:
+    - "true"
+    - "false"
+  RandomResizedCrop:
+    distribution: categorical
+    values:
+    - "true"
+    - "false"
+  RandomScale:
+    distribution: categorical
+    values:
+      - "true"
+      - "false"
+  ShiftScaleRotate:
+    distribution: categorical
+    values:
+    - "true"
+    - "false"
+  ShiftScaleRotateMode:
+    distribution: int_uniform
+    max: 4
+    min: 0
+  VerticalFlip:
+    distribution: categorical
+    values:
+    - "true"
+    - "false"
+  archi:
+    distribution: categorical
+    values:
+    - Unet
+  backbone:
+    distribution: categorical
+    values:
+    - tu-hrnet_w18
+  fp16:
+    distribution: categorical
+    values:
+    - "true"
+    - "false"
+  learning_rate:
+    distribution: uniform
+    max: 0.0001
+    min: 5e-05
+  optimizer:
+    distribution: categorical
+    values:
+    - adam
+    - adamw
+    - adamp
+  scheduler:
+    distribution: categorical
+    values:
+    - reducelr
+    - cosineanneal
+  train_json_path:
+    distribution: categorical
+    values:
+    - ../data/train.json
+  val_json_path:
+    distribution: categorical
+    values:
+    - ../data/val.json
+program: train_orig.py
